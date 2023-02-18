@@ -110,18 +110,13 @@ function checkForWinner() {
             // console.log(board[sqr])
             sum += board[sqr];
         });
-        // console.log('sum ', sum);
         sum = Math.abs(sum);
-        // console.log('abs ', sum);
         if (sum === 3)
             winner = true;
-        // console.log(winner);
     });
 }
-// checkForWinner()
 function switchPlayerTurn() {
     if (winner === true)
         return;
     turn *= -1;
-    // console.log(turn);
 }
