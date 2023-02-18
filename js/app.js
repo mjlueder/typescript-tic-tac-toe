@@ -14,13 +14,9 @@ const winningCombos = [
 let board, turn, winner, tie;
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.sqr');
-// console.dir(squareEls);
 const messageEl = document.getElementById('message');
-// console.log(messageEl);
 const boardEl = document.querySelector('.board');
-// console.log(boardEl);
 const resetBtnEl = document.querySelector('.reset');
-// console.log(resetBtnEl);
 /*----------------------------- Event Listeners -----------------------------*/
 boardEl.addEventListener('click', handleClick);
 resetBtnEl.addEventListener('click', init);
@@ -39,9 +35,6 @@ function render() {
 }
 function updateBoard() {
     board.forEach(function (sqr, idx) {
-        // console.dir(sqr);
-        // console.log(idx);
-        // console.log(squareEls[idx]);
         if (sqr === 0) {
             squareEls[idx].textContent = '';
         }
@@ -69,17 +62,10 @@ function updateMessage() {
         messageEl.textContent = `Player ${letter} won!`;
     }
 }
-// winner = true
-// tie = true
-// updateMessage()
 function handleClick(evt) {
-    // console.log(evt.target.id[2]);
-    // console.dir(evt.target);
-    // console.log(evt.target.textContent);
     if (!(evt.target instanceof HTMLElement))
         return;
     let sqIdx = Number(evt.target.id[2]);
-    // console.log(sqIdx);
     if (isNaN(sqIdx))
         return;
     if (board[sqIdx])
@@ -94,20 +80,17 @@ function handleClick(evt) {
 }
 function placePiece(idx) {
     board[idx] = turn;
-    // console.log('board idx', idx, board[idx]);
 }
 function checkForTie() {
     let checkTie = board.every(function (value) {
         return value !== 0;
     });
     tie = checkTie;
-    // console.log(tie);
 }
 function checkForWinner() {
     winningCombos.forEach(function (combo) {
         let sum = 0;
         combo.forEach(function (sqr) {
-            // console.log(board[sqr])
             sum += board[sqr];
         });
         sum = Math.abs(sum);
