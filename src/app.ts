@@ -105,4 +105,3 @@ function switchPlayerTurn(){
   if (winner === true) return
   turn *= -1
 }
-
