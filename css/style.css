@@ -1,0 +1,92 @@
+html, body {
+  /* display: flex; */
+  /* for some reason commenting out the above line fixed the confetti issue */
+  justify-content: center;
+  height: 100%;
+}
+
+body {
+  background-image: url("https://images.unsplash.com/photo-1485841938031-1bf81239b815?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2465&q=80");
+  background-size: cover;
+  background-color: rgb(103, 131, 182);
+	font-family: 'DM Serif Display', serif;
+  /* "Helvetica Neue", sans-serif; */
+	margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+}
+
+section.board {
+  display: grid;
+  grid-template-rows: repeat(3, 10vmin);
+  grid-template-columns: repeat(3, 10vmin);
+  grid-gap: 0vmin;
+  box-shadow: 5px 5px 2px;
+}
+
+div {
+  border: 3px solid black;
+  font-size: 8vmin;
+  text-align: center;
+  vertical-align: middle;
+  background-color:rgb(206, 206, 206);
+}
+
+button {
+  width: 150px;
+  margin: 30px;
+  font-family: 'Chicle', cursive; 
+  font-size: 24px;
+  border-radius: 5px;
+  background-color: rgb(181, 186, 191);
+  box-shadow: 2px 2px 2px black;
+}
+
+h1, h2 {
+  background-color: rgb(24, 31, 44);
+  color: rgb(205, 205, 205);
+  /* border: solid rgb(34, 34, 71) 2px; */
+}
+
+h1 {
+  font-size: 60px;
+  padding: 18px 25px;
+  margin: 25px 0;
+  border-radius: 20px;
+  /* box-shadow: 8px 8px 4px rgb(36, 36, 114); */
+}
+
+h2 {
+  font-size: 24px;
+  padding: 13px 18px;
+  margin: 0 0 30px 0;
+  border-radius: 15px;
+  /* box-shadow: 7px 7px 3px darkblue; */
+}
+
+.sqr:hover {
+  background-color: rgb(158, 158, 158);
+}
+
+@media (max-width: 800px) { 
+  h1 {
+    font-size: 65px;
+  }
+  h2 {
+    font-size: 30px;
+    padding: 10px 18px;
+  }
+  button {
+    font-size: 22px;
+  }
+}
