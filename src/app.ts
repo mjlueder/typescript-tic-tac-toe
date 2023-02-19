@@ -32,7 +32,7 @@ resetBtnEl.addEventListener('click', init)
 
 init()  
 
-function init(){
+function init(): void{
   board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
   turn = -1
   winner = false
@@ -40,12 +40,12 @@ function init(){
   render()
 }
 
-function render(){
+function render(): void {
   updateBoard()
   updateMessage()
 }
 
-function updateBoard(){
+function updateBoard(): void {
   board.forEach(function(sqr, idx){
     if (sqr === 0) { squareEls[idx].textContent = ''} 
     if (sqr === 1) { squareEls[idx].textContent = '🦋' }
@@ -53,7 +53,7 @@ function updateBoard(){
   })
 }
 
-function updateMessage() {
+function updateMessage(): void {
   let letter
   if (turn === -1) letter = '🪲'
   if (turn === 1) letter = '🦋'
@@ -66,7 +66,7 @@ function updateMessage() {
   }
 }
 
-function handleClick(evt: MouseEvent){
+function handleClick(evt: MouseEvent): void {
   if (!(evt.target instanceof HTMLElement)) return
   let sqIdx = Number(evt.target.id[2])
   if (isNaN(sqIdx)) return
@@ -79,21 +79,21 @@ function handleClick(evt: MouseEvent){
   render()
 }
 
-function placePiece(idx: number) {
+function placePiece(idx: number): void {
   board[idx] = turn
 }
 
-function checkForTie(){
-  let checkTie = board.every(function(value){
+function checkForTie(): void {
+  let checkTie = board.every(function(value: number): boolean{
     return value !== 0
   })
   tie = checkTie
 }
 
-function checkForWinner(){
-    winningCombos.forEach(function(combo){
+function checkForWinner(): void {
+    winningCombos.forEach(function(combo: number[]): void {
       let sum = 0
-      combo.forEach(function(sqr){
+      combo.forEach(function(sqr: number): void {
         sum += board[sqr]
       })
       sum = Math.abs(sum)
@@ -101,7 +101,7 @@ function checkForWinner(){
     })
   }
 
-function switchPlayerTurn(){
+function switchPlayerTurn(): void {
   if (winner === true) return
   turn *= -1
 }
